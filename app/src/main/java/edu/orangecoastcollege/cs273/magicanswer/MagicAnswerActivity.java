@@ -38,7 +38,9 @@ public class MagicAnswerActivity extends AppCompatActivity {
         shakeDetector = new ShakeDetector(new ShakeDetector.OnShakeListener() {
             @Override
             public void onShake() {
-
+                // Get a random answer, put it in the answerTextView
+                String answer = magicAnswer.getRandomAnswer();
+                answerTextView.setText(answer);
             }
         });
     }
