@@ -45,5 +45,17 @@ public class MagicAnswerActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Start the accelerometer
+        sensorManager.registerListener(shakeDetector, accelerometer, SensorManager.SENSOR_DELAY_UI);
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // Stop the accelerometer
+        sensorManager.unregisterListener(shakeDetector);
+    }
 }
